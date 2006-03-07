@@ -12,6 +12,7 @@ License:	GPL
 Group:		X11/Applications
 URL:		http://www.truesoft.ch/dieter/index.html
 Source0:	http://www.truesoft.ch/dieter/kkeyled/software/%{name}-%{version}.tar.gz
+# Source0-md5:	c34c80c8865a0aa5a9525ed7ee0da4a2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
