@@ -4,7 +4,7 @@
 # - Rs
 #
 Summary:	Displays the status of the keyboard leds
-Summary(pl):	Wy¶wietla status diod klawiatury.
+Summary(pl):	Wy¶wietlanie statusu diod klawiatury
 Name:		kkeyled
 Version:	0.8.11
 Release:	0.1
@@ -16,12 +16,12 @@ Source0:	http://www.truesoft.ch/dieter/kkeyled/software/%{name}-%{version}.tar.g
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-A little program wich helps you to watch your display leds for the numlock,
-scrollock and the capslock keys.
+A little program wich helps you to watch your display leds for the
+numlock, scrollock and the capslock keys.
 
 %description -l pl
-Ma³y programik, który pomaga Ci w obserwowaniu diod klawiatury dla klawiszy numlock,
-scrollock i capslock.
+Ma³y programik, który pomaga Ci w obserwowaniu diod klawiatury dla
+klawiszy numlock, scrollock i capslock.
 
 %prep
 %setup -q -n %{name}
