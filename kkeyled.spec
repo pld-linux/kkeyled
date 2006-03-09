@@ -1,7 +1,5 @@
 #
 # TODO:
-# - BRs
-# - Rs
 # - fix files
 #
 Summary:	Displays the status of the keyboard leds
@@ -14,6 +12,7 @@ Group:		X11/Applications
 Source0:	http://www.truesoft.ch/dieter/kkeyled/software/%{name}-%{version}.tar.gz
 # Source0-md5:	c34c80c8865a0aa5a9525ed7ee0da4a2
 URL:		http://www.truesoft.ch/dieter/index.html
+BuildRequires:	kdelibs-devel >= 3.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -28,7 +27,8 @@ klawiszy numlock, scrollock i capslock.
 %setup -q -n %{name}
 
 %build
-%configure
+%configure \
+	--with-qt-libraries=%{_libdir}
 
 %{__make}
 
