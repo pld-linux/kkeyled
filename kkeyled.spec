@@ -1,7 +1,3 @@
-#
-# TODO:
-# - fix files
-#
 Summary:	Displays the status of the keyboard leds
 Summary(pl):	Wy¶wietlanie statusu diod klawiatury
 Name:		kkeyled
@@ -13,6 +9,7 @@ Source0:	http://www.truesoft.ch/dieter/kkeyled/software/%{name}-%{version}.tar.g
 # Source0-md5:	c34c80c8865a0aa5a9525ed7ee0da4a2
 URL:		http://www.truesoft.ch/dieter/index.html
 BuildRequires:	kdelibs-devel >= 3.0
+BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -28,6 +25,7 @@ klawiszy numlock, scrollock i capslock.
 
 %build
 %configure \
+	--disable-rpath \
 	--with-qt-libraries=%{_libdir}
 
 %{__make}
@@ -36,13 +34,21 @@ klawiszy numlock, scrollock i capslock.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	shelldesktopdir=%{_desktopdir}/kde \
+	kde_htmldir=%{_kdedocdir} \
+	kde_libs_htmldir=%{_kdedocdir}
+
+%find_lang %{name} --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/kkeyled
-%{_datadir}/*
+%{_datadir}/apps/kkeyled
+%{_datadir}/config/kkeyledrc
+%{_desktopdir}/kde/kkeyled.desktop
+%{_iconsdir}/hicolor/*/apps/kkeyled.png
