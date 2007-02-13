@@ -1,5 +1,5 @@
 Summary:	Displays the status of the keyboard leds
-Summary(pl.UTF-8):   Wyświetlanie statusu diod klawiatury
+Summary(pl.UTF-8):	Wyświetlanie statusu diod klawiatury
 Name:		kkeyled
 Version:	0.8.11
 Release:	0.1
